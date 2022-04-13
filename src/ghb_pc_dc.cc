@@ -8,7 +8,7 @@
 void l2_prefetcher_initialize(int cpu_num)
 {
   printf("No Prefetching\n");
-  // you can inspect these knob values from your code to see which configuration you're runnig in
+  // you can inspect these knob values from your code to see which configuration you're running in
   printf("Knobs visible from prefetcher: %d %d %d\n", knob_scramble_loads, knob_small_llc, knob_low_bandwidth);
 }
 

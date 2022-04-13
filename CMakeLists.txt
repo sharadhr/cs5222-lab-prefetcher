@@ -10,9 +10,10 @@ project(
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Werror -no-pie")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -nopie")
 
 add_subdirectory(src)
 
 target_include_directories(dpc2sim PRIVATE inc)
-target_link_libraries(dpc2sim PRIVATE lib/dpc2sim.a)
+find_library(dpclib dpc2sim "${CMAKE_SOURCE_DIR}/lib")
+target_link_libraries(dpc2sim ${dpclib})
