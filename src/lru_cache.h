@@ -7,19 +7,15 @@
 //
 // See http://boostorg.github.com/compute for more information.
 //---------------------------------------------------------------------------//
+// Modified to remove namespaces, use std::optional and std::unordered_map by
+// Sharadh Rajaraman (c) 2022
 
-#ifndef BOOST_COMPUTE_DETAIL_LRU_CACHE_HPP
-#define BOOST_COMPUTE_DETAIL_LRU_CACHE_HPP
+#pragma once
 
-#include <map>
 #include <list>
+#include <optional>
+#include <unordered_map>
 #include <utility>
-
-#include <boost/optional.hpp>
-
-namespace boost {
-namespace compute {
-namespace detail {
 
 // a cache which evicts the least recently used item when it is full
 template<class Key, class Value>
@@ -29,46 +25,44 @@ public:
 	typedef Key key_type;
 	typedef Value value_type;
 	typedef std::list<key_type> list_type;
-	typedef std::map<
+	typedef std::unordered_map<
 			key_type,
-			std::pair<value_type, typename list_type::iterator>
-			> map_type;
+			std::pair<value_type, typename list_type::iterator>>
+			map_type;
 
-	lru_cache(size_t capacity)
-		: m_capacity(capacity)
+	explicit lru_cache(size_t capacity) :
+		m_capacity(capacity)
 	{
 	}
 
-	~lru_cache()
-	{
-	}
+	~lru_cache() = default;
 
-	size_t size() const
+	[[nodiscard]] size_t size() const
 	{
 		return m_map.size();
 	}
 
-	size_t capacity() const
+	[[nodiscard]] size_t capacity() const
 	{
 		return m_capacity;
 	}
 
-	bool empty() const
+	[[nodiscard]] bool empty() const
 	{
 		return m_map.empty();
 	}
 
-	bool contains(const key_type &key)
+	bool contains(const key_type& key)
 	{
 		return m_map.find(key) != m_map.end();
 	}
 
-	void insert(const key_type &key, const value_type &value)
+	void insert(const key_type& key, const value_type& value)
 	{
 		typename map_type::iterator i = m_map.find(key);
-		if(i == m_map.end()){
+		if (i == m_map.end()) {
 			// insert item into the cache, but first check if it is full
-			if(size() >= m_capacity){
+			if (size() >= m_capacity) {
 				// cache is full, evict the least recently used item
 				evict();
 			}
@@ -79,35 +73,34 @@ public:
 		}
 	}
 
-	boost::optional<value_type> get(const key_type &key)
+	std::optional<value_type> get(const key_type& key)
 	{
 		// lookup value in the cache
 		typename map_type::iterator i = m_map.find(key);
-		if(i == m_map.end()){
+		if (i == m_map.end()) {
 			// value not in cache
-			return boost::none;
+			return {};
 		}
 
 		// return the value, but first update its place in the most
 		// recently used list
 		typename list_type::iterator j = i->second.second;
-		if(j != m_list.begin()){
+		if (j != m_list.begin()) {
 			// move item to the front of the most recently used list
 			m_list.erase(j);
 			m_list.push_front(key);
 
 			// update iterator in map
 			j = m_list.begin();
-			const value_type &value = i->second.first;
+			const value_type& value = i->second.first;
 			m_map[key] = std::make_pair(value, j);
 
 			// return the value
-			return value;
-		}
-		else {
+			return {value};
+		} else {
 			// the item is already at the front of the most recently
 			// used list so just return it
-			return i->second.first;
+			return {i->second.first};
 		}
 	}
 
@@ -131,9 +124,3 @@ private:
 	list_type m_list;
 	size_t m_capacity;
 };
-
-} // end detail namespace
-} // end compute namespace
-} // end boost namespace
-
-#endif // BOOST_COMPUTE_DETAIL_LRU_CACHE_HPP
