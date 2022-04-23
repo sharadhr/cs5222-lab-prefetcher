@@ -3,3 +3,14 @@ cmake-build-*/*
 .idea/.gitignore
 traces/*.dpc
 
+*.blg
+*.bbl
+*.auxlock
+*.log
+*.fls
+*.run.xml
+*.out
+*.fdb_latexmk
+*.synctex.gz
+*.aux
+*.bcf

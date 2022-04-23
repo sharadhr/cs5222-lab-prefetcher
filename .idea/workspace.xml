@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+  <component name="CMakeRunConfigurationManager">
     <generated>
       <config projectName="cs5222_prefetcher" targetName="dpc2sim" />
     </generated>
@@ -9,11 +9,15 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9328d24-d900-4ae3-8676-244e7c5500f4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.clang-format" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+    <list default="true" id="d9328d24-d900-4ae3-8676-244e7c5500f4" name="Changes" comment="Modify lru_cache.h to use std::unordered_map and std::optional">
+      <change afterPath="$PROJECT_DIR$/src/ghb_pc_dc.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/history_buffer.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.clang-format" beforeDir="false" afterPath="$PROJECT_DIR$/.clang-format" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/inc/prefetcher.h" beforeDir="false" afterPath="$PROJECT_DIR$/inc/prefetcher.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ghb_pc_dc.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/ghb_pc_dc.cc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,20 +53,21 @@
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="cf.advertisement.text.overridden" value="true" />
-    <property name="cf.first.check.clang-format" value="false" />
-    <property name="cidr.known.project.marker" value="true" />
-    <property name="cmake.loaded.for.project" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/traces/gcc_trace2.dpc" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="CPPToolchains" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "cf.advertisement.text.overridden": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "cmake.loaded.for.project": "true",
+    "last_opened_file_path": "/home/sharadh/Desktop/cs5222-lab-prefetcher/traces/lbm_trace2.dpc",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "CPPToolchains"
+  }
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="BIBTEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
       <texify-bibtex>
@@ -70,8 +75,8 @@
         <compiler-path />
         <compiler-arguments />
         <envs />
-        <main-file />
-        <aux-dir />
+        <main-file>$USER_HOME$</main-file>
+        <aux-dir>$USER_HOME$</aux-dir>
       </texify-bibtex>
       <method v="2" />
     </configuration>
@@ -80,7 +85,7 @@
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
       </method>
     </configuration>
-    <configuration name="dpc2sim" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="true" REDIRECT_INPUT_PATH="$FilePrompt$" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cs5222_prefetcher" TARGET_NAME="dpc2sim" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cs5222_prefetcher" RUN_TARGET_NAME="dpc2sim">
+    <configuration name="dpc2sim" type="CMakeRunConfiguration" factoryName="Application" singleton="false" REDIRECT_INPUT="true" REDIRECT_INPUT_PATH="$FilePrompt$" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="cs5222_prefetcher" TARGET_NAME="dpc2sim" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cs5222_prefetcher" RUN_TARGET_NAME="dpc2sim">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -91,6 +96,27 @@
         <main-file />
         <work-dir />
       </texify-external>
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="LATEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
+      <texify>
+        <compiler>PDFLATEX</compiler>
+        <compiler-path />
+        <sumatra-path />
+        <pdf-viewer>OKULAR</pdf-viewer>
+        <viewer-command />
+        <compiler-arguments />
+        <envs />
+        <main-file />
+        <output-path>{projectDir}/out</output-path>
+        <auxil-path>{projectDir}/auxil</auxil-path>
+        <compile-twice>false</compile-twice>
+        <output-format>PDF</output-format>
+        <latex-distribution>MIKTEX</latex-distribution>
+        <has-been-run>false</has-been-run>
+        <bib-run-config>[]</bib-run-config>
+        <makeindex-run-config>[]</makeindex-run-config>
+      </texify>
       <method v="2" />
     </configuration>
     <configuration default="true" type="MAKEINDEX_RUN_CONFIGURATION" factoryName="LaTeX configuration factory">
@@ -111,8 +137,67 @@
       <option name="presentableId" value="Default" />
       <updated>1649864659090</updated>
       <workItem from="1649864660546" duration="1000" />
-      <workItem from="1649864710953" duration="2943000" />
+      <workItem from="1649864710953" duration="3627000" />
+      <workItem from="1649915138037" duration="636000" />
+      <workItem from="1649916044331" duration="14000" />
+      <workItem from="1649916072356" duration="663000" />
+      <workItem from="1649949049326" duration="1000" />
+      <workItem from="1649949152513" duration="1000" />
+      <workItem from="1649949523656" duration="1240000" />
+      <workItem from="1649952735103" duration="184000" />
+      <workItem from="1649952924885" duration="873000" />
+      <workItem from="1649989873569" duration="1383000" />
+      <workItem from="1650008634688" duration="1000" />
+      <workItem from="1650008748810" duration="4593000" />
+      <workItem from="1650023216853" duration="1312000" />
+      <workItem from="1650093043627" duration="6915000" />
+      <workItem from="1650117081370" duration="1456000" />
+      <workItem from="1650119337470" duration="586000" />
+      <workItem from="1650119931337" duration="599000" />
+      <workItem from="1650440855101" duration="31044000" />
+      <workItem from="1650562892928" duration="10714000" />
+      <workItem from="1650621355327" duration="2796000" />
+      <workItem from="1650626470873" duration="5806000" />
+      <workItem from="1650638017579" duration="16417000" />
+      <workItem from="1650655224731" duration="2362000" />
+      <workItem from="1650687950721" duration="8232000" />
     </task>
+    <task id="LOCAL-00001" summary="More build fixes">
+      <created>1649867658067</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1649867658067</updated>
+    </task>
+    <task id="LOCAL-00002" summary="More build fixes">
+      <created>1649867685022</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1649867685022</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Ignore TeX build artifacts; added report draft">
+      <created>1650565299710</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1650565299710</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Copy boost::lru_cache to source">
+      <created>1650596894205</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1650596894205</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Modify lru_cache.h to use std::unordered_map and std::optional">
+      <created>1650597386552</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1650597386552</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -121,6 +206,31 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="0c6d020c-0ce1-4a60-9089-7928030def84">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/home/sharadh/Desktop/cs5222-lab-prefetcher/cmake-build-relwithdebinfo" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
@@ -128,6 +238,20 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="More build fixes" />
+    <MESSAGE value="Ignore TeX build artifacts; added report draft" />
+    <MESSAGE value="Copy boost::lru_cache to source" />
+    <MESSAGE value="Modify lru_cache.h to use std::unordered_map and std::optional" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modify lru_cache.h to use std::unordered_map and std::optional" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <default-breakpoints>
+        <breakpoint enabled="true" type="CidrExceptionBreakpoint" />
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

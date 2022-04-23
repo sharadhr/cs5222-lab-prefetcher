@@ -90,7 +90,7 @@ void l2_prefetcher_initialize(int cpu_num);
 // cache_hit - 1 for an L2 cache hit, 0 for an L2 cache miss
 void l2_prefetcher_operate(int cpu_num, unsigned long long int addr, unsigned long long int ip, int cache_hit);
 
-// This function is called when a cache block is filled into the L2, and lets you konw which set and way of the cache the block occupies.
+// This function is called when a cache block is filled into the L2, and lets you know which set and way of the cache the block occupies.
 // You can use this function to know when prefetched lines arrive in the L2, and along with l2_get_set() and l2_get_way() you can
 // reconstruct a view of the contents of the L2 cache.
 // Using this function is optional.
