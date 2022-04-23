@@ -29,3 +29,11 @@ target_link_libraries(ip-stride ${dpclib})
 target_link_libraries(next-line ${dpclib})
 target_link_libraries(skeleton ${dpclib})
 target_link_libraries(stream ${dpclib})
+
+set_target_properties(ghb-pc-dc PROPERTIES LINKER_LANGUAGE CXX RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/build/$<0:>)
+set_target_properties(ampm-lite PROPERTIES LINKER_LANGUAGE CXX RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/build/$<0:>)
+set_target_properties(ip-stride PROPERTIES LINKER_LANGUAGE CXX RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/build/$<0:>)
+set_target_properties(next-line PROPERTIES LINKER_LANGUAGE CXX RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/build/$<0:>)
+set_target_properties(skeleton PROPERTIES LINKER_LANGUAGE CXX RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/build/$<0:>)
+set_target_properties(stream PROPERTIES LINKER_LANGUAGE CXX RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/build/$<0:>)
+
