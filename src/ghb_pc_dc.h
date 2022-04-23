@@ -20,7 +20,7 @@ public:
 
 private:
 	IndexTable<IndexKey, MissAddress> indexTable{256u};
-	HistoryBuffer<MissAddress> historyBuffer{256u};
+	HistoryBuffer<MissAddress> historyBuffer{256u, 4u};
 };
 
 template<std::unsigned_integral IndexKey, std::unsigned_integral MissAddress>

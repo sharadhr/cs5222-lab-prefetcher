@@ -31,7 +31,7 @@ template<typename MissAddress>
 class HistoryBuffer
 {
 public:
-	explicit HistoryBuffer(std::size_t entries, std::size_t prefetch_degree) :
+	[[maybe_unused]] HistoryBuffer(std::size_t entries, std::size_t prefetch_degree) :
 		entries{entries}, prefetch_degree{prefetch_degree}, fifo_queue{entries}
 	{}
 
@@ -103,7 +103,9 @@ std::vector<MissAddress> HistoryBuffer<MissAddress>::prefetchDeltas(node_wk_ptr_
 	if (latest_occurrence_position == std::end(delta_stream)) return {};
 
 	// Pattern found, return up to prefetch_degree deltas *forward*
-	auto prefetches_left{std::distance(latest_occurrence_position, std::end(delta_stream)) - 2};
+	auto prefetches_left{
+			std::min(static_cast<std::size_t>(std::distance(latest_occurrence_position, std::end(delta_stream)) - 2),
+	                 prefetch_degree)};
 
 	return {latest_occurrence_position + 2, latest_occurrence_position + prefetches_left};
 }

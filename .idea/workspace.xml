@@ -9,9 +9,9 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9328d24-d900-4ae3-8676-244e7c5500f4" name="Changes" comment="almost final implementation">
+    <list default="true" id="d9328d24-d900-4ae3-8676-244e7c5500f4" name="Changes" comment="IDE stuff">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ghb_pc_dc.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/ghb_pc_dc.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ghb_pc_dc.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/ghb_pc_dc.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/history_buffer.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/history_buffer.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,7 +19,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:RelWithDebInfo" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -57,7 +57,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "cmake.loaded.for.project": "true",
-    "last_opened_file_path": "/home/sharadh/Desktop/cs5222-lab-prefetcher/traces/GemsFDTD_trace2.dpc",
+    "last_opened_file_path": "/home/sharadh/Desktop/cs5222-lab-prefetcher/traces/gcc_trace2.dpc",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "CPPToolchains"
   }
@@ -154,7 +154,7 @@
       <workItem from="1650626470873" duration="5806000" />
       <workItem from="1650638017579" duration="16417000" />
       <workItem from="1650655224731" duration="2362000" />
-      <workItem from="1650687950721" duration="10811000" />
+      <workItem from="1650687950721" duration="12221000" />
     </task>
     <task id="LOCAL-00001" summary="More build fixes">
       <created>1649867658067</created>
@@ -198,7 +198,28 @@
       <option name="project" value="LOCAL" />
       <updated>1650721380769</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fix segfaults">
+      <created>1650727231697</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1650727231698</updated>
+    </task>
+    <task id="LOCAL-00008" summary="maybe unused--suppress warnings">
+      <created>1650727246922</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1650727246922</updated>
+    </task>
+    <task id="LOCAL-00009" summary="IDE stuff">
+      <created>1650727255369</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1650727255369</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -246,7 +267,10 @@
     <MESSAGE value="Copy boost::lru_cache to source" />
     <MESSAGE value="Modify lru_cache.h to use std::unordered_map and std::optional" />
     <MESSAGE value="almost final implementation" />
-    <option name="LAST_COMMIT_MESSAGE" value="almost final implementation" />
+    <MESSAGE value="fix segfaults" />
+    <MESSAGE value="maybe unused--suppress warnings" />
+    <MESSAGE value="IDE stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="IDE stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
