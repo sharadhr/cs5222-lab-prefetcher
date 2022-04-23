@@ -111,10 +111,15 @@ std::vector<MissAddress> HistoryBuffer<MissAddress>::prefetchDeltas(node_wk_ptr_
 template<typename MissAddress>
 auto HistoryBuffer<MissAddress>::listDeltas(node_wk_ptr_t<MissAddress>& list_head_ptr)
 {
+	std::vector<MissAddress> empty_vec{};
 	// skip first two elements, if third element is null, again, no prefetching
 	auto curr{list_head_ptr};
+	if (curr.expired()) return empty_vec;
 	curr = curr.lock()->next;
-	if (curr.lock()->next.expired()) return std::vector<MissAddress>{};
+	if (curr.expired()) return empty_vec;
+
+	curr = curr.lock()->next;
+	if (curr.expired()) return empty_vec;
 
 	std::vector<MissAddress> list_miss_addresses{};
 	std::vector<MissAddress> delta_stream{};
