@@ -9,16 +9,10 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9328d24-d900-4ae3-8676-244e7c5500f4" name="Changes" comment="Modify lru_cache.h to use std::unordered_map and std::optional">
-      <change afterPath="$PROJECT_DIR$/src/ghb_pc_dc.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/history_buffer.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.clang-format" beforeDir="false" afterPath="$PROJECT_DIR$/.clang-format" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+    <list default="true" id="d9328d24-d900-4ae3-8676-244e7c5500f4" name="Changes" comment="almost final implementation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/inc/prefetcher.h" beforeDir="false" afterPath="$PROJECT_DIR$/inc/prefetcher.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ghb_pc_dc.cc" beforeDir="false" afterPath="$PROJECT_DIR$/src/ghb_pc_dc.cc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/history_buffer.h" beforeDir="false" afterPath="$PROJECT_DIR$/src/history_buffer.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +57,7 @@
     "cf.first.check.clang-format": "false",
     "cidr.known.project.marker": "true",
     "cmake.loaded.for.project": "true",
-    "last_opened_file_path": "/home/sharadh/Desktop/cs5222-lab-prefetcher/traces/lbm_trace2.dpc",
+    "last_opened_file_path": "/home/sharadh/Desktop/cs5222-lab-prefetcher/traces/GemsFDTD_trace2.dpc",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "CPPToolchains"
   }
@@ -160,7 +154,7 @@
       <workItem from="1650626470873" duration="5806000" />
       <workItem from="1650638017579" duration="16417000" />
       <workItem from="1650655224731" duration="2362000" />
-      <workItem from="1650687950721" duration="8232000" />
+      <workItem from="1650687950721" duration="10811000" />
     </task>
     <task id="LOCAL-00001" summary="More build fixes">
       <created>1649867658067</created>
@@ -197,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650597386552</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="almost final implementation">
+      <created>1650721380769</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1650721380769</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,7 +245,8 @@
     <MESSAGE value="Ignore TeX build artifacts; added report draft" />
     <MESSAGE value="Copy boost::lru_cache to source" />
     <MESSAGE value="Modify lru_cache.h to use std::unordered_map and std::optional" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modify lru_cache.h to use std::unordered_map and std::optional" />
+    <MESSAGE value="almost final implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="almost final implementation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
