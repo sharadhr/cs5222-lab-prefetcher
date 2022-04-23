@@ -14,7 +14,7 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9328d24-d900-4ae3-8676-244e7c5500f4" name="Changes" comment="final bugfixes">
+    <list default="true" id="d9328d24-d900-4ae3-8676-244e7c5500f4" name="Changes" comment="Build changes to build others">
       <change afterPath="$PROJECT_DIR$/example_prefetchers/CMakeLists.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
@@ -61,6 +61,7 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
     <option name="showVisibilityIcons" value="true" />
+    <option name="sortByType" value="true" />
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
@@ -94,7 +95,7 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="all" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
+    <configuration name="all" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="true" REDIRECT_INPUT_PATH="$FilePrompt$" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="cs5222_prefetcher" RUN_TARGET_NAME="ampm-lite" EXPLICIT_BUILD_TARGET_NAME="all">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -209,7 +210,7 @@
       <workItem from="1650638017579" duration="16417000" />
       <workItem from="1650655224731" duration="2362000" />
       <workItem from="1650687950721" duration="13321000" />
-      <workItem from="1650730663458" duration="758000" />
+      <workItem from="1650730663458" duration="1060000" />
     </task>
     <task id="LOCAL-00001" summary="More build fixes">
       <created>1649867658067</created>
@@ -281,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650728585550</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Build changes to build others">
+      <created>1650731721450</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1650731721450</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -333,7 +341,8 @@
     <MESSAGE value="maybe unused--suppress warnings" />
     <MESSAGE value="IDE stuff" />
     <MESSAGE value="final bugfixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="final bugfixes" />
+    <MESSAGE value="Build changes to build others" />
+    <option name="LAST_COMMIT_MESSAGE" value="Build changes to build others" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
