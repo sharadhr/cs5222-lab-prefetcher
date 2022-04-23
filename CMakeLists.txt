@@ -13,7 +13,19 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -no-pie")
 
 add_subdirectory(src)
-
-target_include_directories(dpc2sim PRIVATE inc)
+add_subdirectory(example_prefetchers)
 find_library(dpclib dpc2sim "${CMAKE_SOURCE_DIR}/lib")
-target_link_libraries(dpc2sim ${dpclib})
+
+target_include_directories(ghb-pc-dc PRIVATE inc)
+target_include_directories(ampm-lite PRIVATE inc)
+target_include_directories(ip-stride PRIVATE inc)
+target_include_directories(next-line PRIVATE inc)
+target_include_directories(skeleton PRIVATE inc)
+target_include_directories(stream PRIVATE inc)
+
+target_link_libraries(ghb-pc-dc ${dpclib})
+target_link_libraries(ampm-lite ${dpclib})
+target_link_libraries(ip-stride ${dpclib})
+target_link_libraries(next-line ${dpclib})
+target_link_libraries(skeleton ${dpclib})
+target_link_libraries(stream ${dpclib})

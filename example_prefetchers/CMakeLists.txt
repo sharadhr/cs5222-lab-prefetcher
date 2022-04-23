@@ -1,0 +1,5 @@
+add_executable(ampm-lite ampm_lite_prefetcher.cc)
+add_executable(ip-stride ip_stride_prefetcher.cc)
+add_executable(next-line next_line_prefetcher.cc)
+add_executable(skeleton skeleton.cc)
+add_executable(stream stream_prefetcher.cc)

@@ -1,1 +1,1 @@
-add_executable(dpc2sim ghb_pc_dc.cc)
+add_executable(ghb-pc-dc ghb_pc_dc.cc)
