@@ -1,0 +1,74 @@
+
+*** Data Prefetching Championship 2 Simulator ***
+
+Warmup Instructions: 10000000
+Simulation Instructions: 100000000
+Scramble loads OFF
+Using 1MB Last Level Cache
+Using 12.8 GB/s DRAM bandwidth
+Global History Buffer Prefetcher with Program Counter-Localised Delta Correction (GHB PC/DC)
+Knobs visible from prefetcher: 0 0 0
+Instructions Retired: 100001 Cycle: 73632 Hearbeat IPC: 1.358119 Cumulative IPC: 1.358119
+Prefetcher heartbeat stats
+Instructions Retired: 200001 Cycle: 134173 Hearbeat IPC: 1.651773 Cumulative IPC: 1.490620
+Prefetcher heartbeat stats
+Instructions Retired: 300004 Cycle: 194424 Hearbeat IPC: 1.659773 Cumulative IPC: 1.543040
+Prefetcher heartbeat stats
+Instructions Retired: 400001 Cycle: 256048 Hearbeat IPC: 1.622696 Cumulative IPC: 1.562211
+Prefetcher heartbeat stats
+Instructions Retired: 500005 Cycle: 315464 Hearbeat IPC: 1.683116 Cumulative IPC: 1.584983
+Prefetcher heartbeat stats
+Instructions Retired: 600003 Cycle: 375525 Hearbeat IPC: 1.664941 Cumulative IPC: 1.597771
+Prefetcher heartbeat stats
+Instructions Retired: 700005 Cycle: 439392 Hearbeat IPC: 1.565785 Cumulative IPC: 1.593122
+Prefetcher heartbeat stats
+Instructions Retired: 800004 Cycle: 511191 Hearbeat IPC: 1.392763 Cumulative IPC: 1.564981
+Prefetcher heartbeat stats
+Instructions Retired: 900002 Cycle: 572770 Hearbeat IPC: 1.623898 Cumulative IPC: 1.571315
+Prefetcher heartbeat stats
+Instructions Retired: 1000001 Cycle: 633189 Hearbeat IPC: 1.655092 Cumulative IPC: 1.579309
+Prefetcher heartbeat stats
+Instructions Retired: 1100004 Cycle: 705180 Hearbeat IPC: 1.389104 Cumulative IPC: 1.559891
+Prefetcher heartbeat stats
+Instructions Retired: 1200003 Cycle: 784916 Hearbeat IPC: 1.254126 Cumulative IPC: 1.528830
+Prefetcher heartbeat stats
+Instructions Retired: 1300004 Cycle: 865384 Hearbeat IPC: 1.242742 Cumulative IPC: 1.502228
+Prefetcher heartbeat stats
+Instructions Retired: 1400003 Cycle: 949349 Hearbeat IPC: 1.190961 Cumulative IPC: 1.474698
+Prefetcher heartbeat stats
+Instructions Retired: 1500005 Cycle: 1036217 Hearbeat IPC: 1.151195 Cumulative IPC: 1.447578
+Prefetcher heartbeat stats
+Instructions Retired: 1600001 Cycle: 1116244 Hearbeat IPC: 1.249528 Cumulative IPC: 1.433379
+Prefetcher heartbeat stats
+Instructions Retired: 1700001 Cycle: 1195107 Hearbeat IPC: 1.268022 Cumulative IPC: 1.422468
+Prefetcher heartbeat stats
+Instructions Retired: 1800004 Cycle: 1282099 Hearbeat IPC: 1.149565 Cumulative IPC: 1.403951
+Prefetcher heartbeat stats
+Instructions Retired: 1900003 Cycle: 1366029 Hearbeat IPC: 1.191457 Cumulative IPC: 1.390895
+Prefetcher heartbeat stats
+Instructions Retired: 2000000 Cycle: 1445984 Hearbeat IPC: 1.250666 Cumulative IPC: 1.383141
+Prefetcher heartbeat stats
+Instructions Retired: 2100003 Cycle: 1533634 Hearbeat IPC: 1.140936 Cumulative IPC: 1.369299
+Prefetcher heartbeat stats
+Instructions Retired: 2200004 Cycle: 1619595 Hearbeat IPC: 1.163330 Cumulative IPC: 1.358367
+Prefetcher heartbeat stats
+Instructions Retired: 2300002 Cycle: 1699437 Hearbeat IPC: 1.252449 Cumulative IPC: 1.353391
+Prefetcher heartbeat stats
+Instructions Retired: 2400002 Cycle: 1780701 Hearbeat IPC: 1.230557 Cumulative IPC: 1.347785
+Prefetcher heartbeat stats
+Instructions Retired: 2500000 Cycle: 1865966 Hearbeat IPC: 1.172791 Cumulative IPC: 1.339789
+Prefetcher heartbeat stats
+Instructions Retired: 2600002 Cycle: 1947562 Hearbeat IPC: 1.225575 Cumulative IPC: 1.335003
+Prefetcher heartbeat stats
+Instructions Retired: 2700004 Cycle: 2033978 Hearbeat IPC: 1.157216 Cumulative IPC: 1.327450
+Prefetcher heartbeat stats
+Instructions Retired: 2800004 Cycle: 2120744 Hearbeat IPC: 1.152525 Cumulative IPC: 1.320293
+Prefetcher heartbeat stats
+Instructions Retired: 2900000 Cycle: 2196818 Hearbeat IPC: 1.314457 Cumulative IPC: 1.320091
+Prefetcher heartbeat stats
+Instructions Retired: 3000002 Cycle: 2282373 Hearbeat IPC: 1.168862 Cumulative IPC: 1.314422
+Prefetcher heartbeat stats
+
+Simulation complete. Instructions retired: 3099754 Cycles elapsed: 2391974 IPC: 1.295898
+
+Prefetcher final stats

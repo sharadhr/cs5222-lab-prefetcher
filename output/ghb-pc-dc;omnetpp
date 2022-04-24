@@ -1,0 +1,74 @@
+
+*** Data Prefetching Championship 2 Simulator ***
+
+Warmup Instructions: 10000000
+Simulation Instructions: 100000000
+Scramble loads OFF
+Using 1MB Last Level Cache
+Using 12.8 GB/s DRAM bandwidth
+Global History Buffer Prefetcher with Program Counter-Localised Delta Correction (GHB PC/DC)
+Knobs visible from prefetcher: 0 0 0
+Instructions Retired: 100001 Cycle: 52191 Hearbeat IPC: 1.916058 Cumulative IPC: 1.916058
+Prefetcher heartbeat stats
+Instructions Retired: 200000 Cycle: 88209 Hearbeat IPC: 2.776362 Cumulative IPC: 2.267342
+Prefetcher heartbeat stats
+Instructions Retired: 300003 Cycle: 122056 Hearbeat IPC: 2.954560 Cumulative IPC: 2.457913
+Prefetcher heartbeat stats
+Instructions Retired: 400002 Cycle: 154209 Hearbeat IPC: 3.110099 Cumulative IPC: 2.593895
+Prefetcher heartbeat stats
+Instructions Retired: 500000 Cycle: 321121 Hearbeat IPC: 0.599106 Cumulative IPC: 1.557045
+Prefetcher heartbeat stats
+Instructions Retired: 600001 Cycle: 440879 Hearbeat IPC: 0.835026 Cumulative IPC: 1.360920
+Prefetcher heartbeat stats
+Instructions Retired: 700001 Cycle: 479289 Hearbeat IPC: 2.603489 Cumulative IPC: 1.460499
+Prefetcher heartbeat stats
+Instructions Retired: 800000 Cycle: 513782 Hearbeat IPC: 2.899110 Cumulative IPC: 1.557081
+Prefetcher heartbeat stats
+Instructions Retired: 900001 Cycle: 548972 Hearbeat IPC: 2.841745 Cumulative IPC: 1.639430
+Prefetcher heartbeat stats
+Instructions Retired: 1000002 Cycle: 581097 Hearbeat IPC: 3.112872 Cumulative IPC: 1.720887
+Prefetcher heartbeat stats
+Instructions Retired: 1100000 Cycle: 613172 Hearbeat IPC: 3.117630 Cumulative IPC: 1.793950
+Prefetcher heartbeat stats
+Instructions Retired: 1200000 Cycle: 666224 Hearbeat IPC: 1.884943 Cumulative IPC: 1.801196
+Prefetcher heartbeat stats
+Instructions Retired: 1300001 Cycle: 729232 Hearbeat IPC: 1.587116 Cumulative IPC: 1.782699
+Prefetcher heartbeat stats
+Instructions Retired: 1400000 Cycle: 763864 Hearbeat IPC: 2.887474 Cumulative IPC: 1.832787
+Prefetcher heartbeat stats
+Instructions Retired: 1500001 Cycle: 797545 Hearbeat IPC: 2.969063 Cumulative IPC: 1.880773
+Prefetcher heartbeat stats
+Instructions Retired: 1600000 Cycle: 833585 Hearbeat IPC: 2.774667 Cumulative IPC: 1.919420
+Prefetcher heartbeat stats
+Instructions Retired: 1700000 Cycle: 865537 Hearbeat IPC: 3.129694 Cumulative IPC: 1.964099
+Prefetcher heartbeat stats
+Instructions Retired: 1800000 Cycle: 897707 Hearbeat IPC: 3.108486 Cumulative IPC: 2.005109
+Prefetcher heartbeat stats
+Instructions Retired: 1900001 Cycle: 942456 Hearbeat IPC: 2.234709 Cumulative IPC: 2.016010
+Prefetcher heartbeat stats
+Instructions Retired: 2000004 Cycle: 1010069 Hearbeat IPC: 1.479050 Cumulative IPC: 1.980067
+Prefetcher heartbeat stats
+Instructions Retired: 2100001 Cycle: 1043785 Hearbeat IPC: 2.965862 Cumulative IPC: 2.011909
+Prefetcher heartbeat stats
+Instructions Retired: 2200000 Cycle: 1077884 Hearbeat IPC: 2.932608 Cumulative IPC: 2.041036
+Prefetcher heartbeat stats
+Instructions Retired: 2300001 Cycle: 1113579 Hearbeat IPC: 2.801541 Cumulative IPC: 2.065413
+Prefetcher heartbeat stats
+Instructions Retired: 2400001 Cycle: 1145670 Hearbeat IPC: 3.116138 Cumulative IPC: 2.094845
+Prefetcher heartbeat stats
+Instructions Retired: 2500000 Cycle: 1177622 Hearbeat IPC: 3.129663 Cumulative IPC: 2.122922
+Prefetcher heartbeat stats
+Instructions Retired: 2600000 Cycle: 1216673 Hearbeat IPC: 2.560754 Cumulative IPC: 2.136975
+Prefetcher heartbeat stats
+Instructions Retired: 2700003 Cycle: 1337713 Hearbeat IPC: 0.826198 Cumulative IPC: 2.018372
+Prefetcher heartbeat stats
+Instructions Retired: 2800002 Cycle: 1370317 Hearbeat IPC: 3.067078 Cumulative IPC: 2.043324
+Prefetcher heartbeat stats
+Instructions Retired: 2900004 Cycle: 1406758 Hearbeat IPC: 2.744217 Cumulative IPC: 2.061480
+Prefetcher heartbeat stats
+Instructions Retired: 3000000 Cycle: 1443842 Hearbeat IPC: 2.696473 Cumulative IPC: 2.077790
+Prefetcher heartbeat stats
+
+Simulation complete. Instructions retired: 3099755 Cycles elapsed: 1475900 IPC: 2.100247
+
+Prefetcher final stats
