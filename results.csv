@@ -1,49 +1,49 @@
 trace,prefetcher,ipc
-ampm-lite gcc,,0.339157
-ampm-lite GemsFDTD,,3.451324
-ampm-lite lbm,,2.035000
-ampm-lite leslie3d,,1.623532
-ampm-lite libquantum,,3.274124
-ampm-lite mcf,,0.372714
-ampm-lite milc,,1.179511
-ampm-lite omnetpp,,2.269448
-ghb-pc-dc gcc,,0.306047
-ghb-pc-dc GemsFDTD,,3.447773
-ghb-pc-dc lbm,,1.374755
-ghb-pc-dc leslie3d,,1.295898
-ghb-pc-dc libquantum,,3.276536
-ghb-pc-dc mcf,,0.349371
-ghb-pc-dc milc,,1.117595
-ghb-pc-dc omnetpp,,2.100247
-ip-stride gcc,,0.308053
-ip-stride GemsFDTD,,3.448985
-ip-stride lbm,,1.529501
-ip-stride leslie3d,,1.407264
-ip-stride libquantum,,3.242776
-ip-stride mcf,,0.353506
-ip-stride milc,,1.136986
-ip-stride omnetpp,,2.220496
-next-line gcc,,0.284244
-next-line GemsFDTD,,3.425332
-next-line lbm,,1.600095
-next-line leslie3d,,1.448414
-next-line libquantum,,3.293444
-next-line mcf,,0.350610
-next-line milc,,1.212129
-next-line omnetpp,,1.853220
-skeleton gcc,,0.291329
-skeleton GemsFDTD,,3.444995
-skeleton lbm,,1.057604
-skeleton leslie3d,,0.985227
-skeleton libquantum,,3.148157
-skeleton mcf,,0.344332
-skeleton milc,,0.980482
-skeleton omnetpp,,2.191883
-stream gcc,,0.276043
-stream GemsFDTD,,3.437907
-stream lbm,,1.259173
-stream leslie3d,,1.033456
-stream libquantum,,3.172061
-stream mcf,,0.342385
-stream milc,,1.068124
-stream omnetpp,,2.214889
+ampm-lite,gcc,0.339157
+ampm-lite,GemsFDTD,3.451324
+ampm-lite,lbm,2.035000
+ampm-lite,leslie3d,1.623532
+ampm-lite,libquantum,3.274124
+ampm-lite,mcf,0.372714
+ampm-lite,milc,1.179511
+ampm-lite,omnetpp,2.269448
+ghb-pc-dc,gcc,0.306047
+ghb-pc-dc,GemsFDTD,3.447773
+ghb-pc-dc,lbm,1.374755
+ghb-pc-dc,leslie3d,1.295898
+ghb-pc-dc,libquantum,3.276536
+ghb-pc-dc,mcf,0.349371
+ghb-pc-dc,milc,1.117595
+ghb-pc-dc,omnetpp,2.100247
+ip-stride,gcc,0.308053
+ip-stride,GemsFDTD,3.448985
+ip-stride,lbm,1.529501
+ip-stride,leslie3d,1.407264
+ip-stride,libquantum,3.242776
+ip-stride,mcf,0.353506
+ip-stride,milc,1.136986
+ip-stride,omnetpp,2.220496
+next-line,gcc,0.284244
+next-line,GemsFDTD,3.425332
+next-line,lbm,1.600095
+next-line,leslie3d,1.448414
+next-line,libquantum,3.293444
+next-line,mcf,0.350610
+next-line,milc,1.212129
+next-line,omnetpp,1.853220
+skeleton,gcc,0.291329
+skeleton,GemsFDTD,3.444995
+skeleton,lbm,1.057604
+skeleton,leslie3d,0.985227
+skeleton,libquantum,3.148157
+skeleton,mcf,0.344332
+skeleton,milc,0.980482
+skeleton,omnetpp,2.191883
+stream,gcc,0.276043
+stream,GemsFDTD,3.437907
+stream,lbm,1.259173
+stream,leslie3d,1.033456
+stream,libquantum,3.172061
+stream,mcf,0.342385
+stream,milc,1.068124
+stream,omnetpp,2.214889

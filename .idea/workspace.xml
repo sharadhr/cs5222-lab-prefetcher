@@ -14,9 +14,11 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d9328d24-d900-4ae3-8676-244e7c5500f4" name="Changes" comment="Removed templating, fixed bugs">
+    <list default="true" id="d9328d24-d900-4ae3-8676-244e7c5500f4" name="Changes" comment="IDE stuff">
+      <change beforePath="$PROJECT_DIR$/make_csv.sh" beforeDir="false" afterPath="$PROJECT_DIR$/make_csv.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/report/CS5222_A3_A0189906L_Report.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/report/CS5222_A3_A0189906L_Report.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/report/CS5222_A3_A0189906L_Report.tex" beforeDir="false" afterPath="$PROJECT_DIR$/report/CS5222_A3_A0189906L_Report.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -214,7 +216,7 @@
       <workItem from="1650687950721" duration="13321000" />
       <workItem from="1650730663458" duration="1776000" />
       <workItem from="1650732467512" duration="17166000" />
-      <workItem from="1650792619607" duration="1849000" />
+      <workItem from="1650792619607" duration="2515000" />
     </task>
     <task id="LOCAL-00001" summary="More build fixes">
       <created>1649867658067</created>
@@ -314,7 +316,21 @@
       <option name="project" value="LOCAL" />
       <updated>1650793653336</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Benchmark output, scripts to run">
+      <created>1650794824185</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1650794824185</updated>
+    </task>
+    <task id="LOCAL-00016" summary="IDE stuff">
+      <created>1650794841042</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1650794841042</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,10 +382,11 @@
     <MESSAGE value="maybe unused--suppress warnings" />
     <MESSAGE value="final bugfixes" />
     <MESSAGE value="Build changes to build others" />
-    <MESSAGE value="IDE stuff" />
     <MESSAGE value="Export build to subfolder" />
     <MESSAGE value="Removed templating, fixed bugs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Removed templating, fixed bugs" />
+    <MESSAGE value="Benchmark output, scripts to run" />
+    <MESSAGE value="IDE stuff" />
+    <option name="LAST_COMMIT_MESSAGE" value="IDE stuff" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
