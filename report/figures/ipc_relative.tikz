@@ -1,0 +1,41 @@
+\begin{tikzpicture}
+	\pgfplotsset{
+		discard if not symbolic/.style 2 args={
+			% suppress LOG messages about the filtered points
+			filter discard warning=false,
+			x filter/.append code={
+				\edef\tempa{\thisrow{#1}}
+				\edef\tempb{#2}
+				\ifx\tempa\tempb
+				\else
+					\def\pgfmathresult{NaN}
+				\fi
+			},
+		},
+	},
+	\begin{axis}[
+		width=15cm,
+		height=5cm,
+		ymajorgrids,
+		ytick={-20,0,20,40,60,80,100},
+		ybar=0pt,
+		ylabel={IPC improvement (\%)},
+		symbolic x coords={gcc,GemsFDTD,lbm,leslie3d,libquantum,mcf,milc,omnetpp},
+		xtick style={draw=none},
+		ytick style={draw=none},
+		bar width=0.25cm,
+		legend style={draw=none,column sep=0.5cm},
+		legend cell align=right,
+		legend pos=outer north east,
+		ticklabel style = {font=\footnotesize},
+	]
+		\foreach \i in {ampm-lite,ghb-pc-dc,ip-stride,next-line,stream} {
+			\addplot+ [discard if not symbolic={trace}{\i}] table [
+					col sep=comma,
+					x=prefetcher,
+					y=ipc-per-diff,
+				] {../percentages.csv};
+			\addlegendentryexpanded{\i}
+		}
+	\end{axis}
+\end{tikzpicture}

@@ -1,4 +1,26 @@
 
+@book{falsafiPrimerHardwarePrefetching2014,
+  title = {A {{Primer}} on {{Hardware Prefetching}}},
+  author = {Falsafi, Babak and Wenisch, Thomas F.},
+  date = {2014-05-01},
+  eprint = {CWm7AwAAQBAJ},
+  eprinttype = {googlebooks},
+  publisher = {{Morgan \& Claypool Publishers}},
+  abstract = {Since the 1970’s, microprocessor-based digital platforms have been riding Moore’s law, allowing for doubling of density for the same area roughly every two years. However, whereas microprocessor fabrication has focused on increasing instruction execution rate, memory fabrication technologies have focused primarily on an increase in capacity with negligible increase in speed. This divergent trend in performance between the processors and memory has led to a phenomenon referred to as the “Memory Wall.” To overcome the memory wall, designers have resorted to a hierarchy of cache memory levels, which rely on the principal of memory access locality to reduce the observed memory access time and the performance gap between processors and memory. Unfortunately, important workload classes exhibit adverse memory access patterns that baffle the simple policies built into modern cache hierarchies to move instructions and data across cache levels. As such, processors often spend much time idling upon a demand fetch of memory blocks that miss in higher cache levels. Prefetching—predicting future memory accesses and issuing requests for the corresponding memory blocks in advance of explicit accesses—is an effective approach to hide memory access latency. There have been a myriad of proposed prefetching techniques, and nearly every modern processor includes some hardware prefetching mechanisms targeting simple and regular memory access patterns. This primer offers an overview of the various classes of hardware prefetchers for instructions and data proposed in the research literature, and presents examples of techniques incorporated into modern microprocessors.},
+  isbn = {978-1-60845-953-7},
+  langid = {english},
+  pagetotal = {69},
+  keywords = {Computers / Computer Architecture,Computers / Computer Science,Computers / Hardware / Chips & Processors}
+}
+
+@article{ishiiAccessMapPattern2011,
+  title = {Access {{Map Pattern Matching}} for {{High Performance Data Cache Prefetch}}},
+  author = {Ishii, Y. and Inaba, M. and Hiraki, K.},
+  date = {2011},
+  journaltitle = {J. Instr. Level Parallelism},
+  abstract = {The AMPM prefetcher achieves high performance even when such aggressive optimizations are applied, and increases IPC by 32.4\% compared to state-of-the-art prefetchers. Hardware data prefetching is widely adopted to hide long memory latency. A hardware data prefetcher predicts the memory address that will be accessed in the near future and fetches the data at the predicted address into the cache memory in advance. To detect memory access patterns such as a constant stride, most existing prefetchers use differences between addresses in a sequence of memory accesses. However, prefetching based on the differences often fail to detect memory access patterns when aggressive optimizations are applied. For example, out-of-order execution changes the memory access order. It causes inaccurate prediction because the sequence of memory addresses used to calculate the difference are changed by the optimization. To overcome the problems of existing prefetchers, we propose Access Map Pattern Matching (AMPM). The AMPM prefetcher has two key components: a memory access map and hardware pattern matching logic. The memory access map is a bitmap-like data structure for holding past memory accesses. The AMPM prefetcher divides the memory address space into memory regions of a fixed size. The memory access map is mapped to the memory region. Each entry in the bitmap-like data structure is mapped to each cache line in the region. Once the bitmap is mapped to the memory region, the entry records whether the corresponding line has already been accessed or not. The AMPM prefetcher detects memory access patterns from the bitmap-like data structure that is mapped to the accessed region. The hardware pattern matching logic is used to detect stride access patterns in the memory access map. The result of pattern matching is affected by neither the memory access order nor the instruction addresses because the bitmap-like data structure holds neither the information that reveals the memory access order of past memory accesses nor the instruction addresses. Therefore, the AMPM prefetcher achieves high performance even when such aggressive optimizations are applied. The AMPM prefetcher is evaluated by performing cycle-accurate simulations using the memory-intensive benchmarks in the SPEC CPU2006 and the NAS Parallel Benchmark. In an aggressively optimized environment, the AMPM prefetcher improves prefetch coverage, while the other state-of-the-art prefetcher degrades the prefetch coverage significantly. As a result, the AMPM prefetcher increases IPC by 32.4\% compared to state-of-the-art prefetcher.}
+}
+
 @inproceedings{nesbitDataCachePrefetching2004,
   title = {Data {{Cache Prefetching Using}} a {{Global History Buffer}}},
   booktitle = {10th {{International Symposium}} on {{High Performance Computer Architecture}} ({{HPCA}}'04)},

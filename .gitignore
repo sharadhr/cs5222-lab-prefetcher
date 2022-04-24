@@ -1,6 +1,6 @@
 cmake-build-*/*
 #.idea/
-.idea/.gitignore
+/.idea/
 traces/*.dpc
 
 *.blg

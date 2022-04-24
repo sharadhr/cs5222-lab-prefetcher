@@ -9,14 +9,109 @@
 
 \addbibresource{CS5222-Project-3.bib}
 
+\newacronym{pc}{PC}{program counter}
+\newacronym{ghb-pc-dc}{GHB PC/DC}{global history buffer with \gls{pc} localisation and delta correlation}
+\newacronym{it}{IT}{Index Table}
+\newacronym{ghb}{GHB}{Global History Buffer}
+\newacronym{fifo}{FIFO}{first-in, first-out}
+\newacronym{lru}{LRU}{least recently used}
+
 \begin{document}
 \maketitle
 
 \begin{multicols}{2}
-	\section{}
+	\section{Introduction}
+	\subsection{Data Prefetching}
+	Prefetching is to data, what branch prediction is to text: both aim to alleviate stalled cycles as a result of fetching text or data lines from main memory, by guessing future accesses given a past history.
+	In this project, the \gls{ghb-pc-dc} prefetcher has been implemented.
+	\subsection{\texorpdfstring{\gls{ghb-pc-dc} Overview}{GHB PC/DC Overview}}
+	\citeauthor{nesbitDataCachePrefetching2004} provide a detailed overview of \gls{ghb-pc-dc} prefetching\cite{nesbitDataCachePrefetching2004}; a very quick summary is detailed as follows.
+
+	The prefetcher consists of two data structures: an \gls{it}, which is a hash-table mapping some localisation key to pointers into a \gls{ghb}, which in turn is a fixed-size \gls{fifo} queue (also called a circular or ring buffer), containing pairs of miss addresses, and pointers to other elements in the \gls{ghb}.
+	For \gls{ghb-pc-dc}, the indexing key is the \gls{pc}.
+
+	\subsection{\texorpdfstring{\gls{ghb-pc-dc} Operation}{GHB PC/DC Operation}}\label{subsec:ghb-pc-dc-oper}
+	The \gls{ghb-pc-dc} prefetcher's algorithm is detailed (albeit rather sparsely) in \citetitle{falsafiPrimerHardwarePrefetching2014}\cite{falsafiPrimerHardwarePrefetching2014}.
+	A detailed algorithm is listed below, including edge cases handled by neither \citeauthor{nesbitDataCachePrefetching2004} nor \citeauthor{falsafiPrimerHardwarePrefetching2014}.
+
+	\begin{enumerate}
+		\item Upon a cache \emph{miss}, the index table is indexed with the \gls{pc}.
+		      \begin{enumerate}
+			      \item If there is a hit, then go to 2.
+			      \item If there is no hit, or the location dereferenced by the corresponding pointer has been evicted from the \gls{ghb}, an entry is created, and no prefetching is performed.
+		      \end{enumerate}
+		\item The miss address is saved onto the stack, and the corresponding pointer is inserted into the head of the \gls{ghb}.
+		\item Given the previous pointer from the \gls{it} hit, the `next' pointer of the above new miss address is set to the previous pointer, thus building a linked list.
+		\item The pointer is dereferenced to the GHB, and the linked list is followed, adding every miss address found, to an array of addresses accessed by the same \gls{pc}.
+		\item Given the nature of the linked list, this array is in reverse-chronological order, with the latest miss address at the beginning of the array, and the earliest miss address at the end. Therefore, this array is reversed.
+		\item Using this reversed array, the \emph{last three} elements in said array are used to build the \emph{latest} delta pair, i.e. the two differences between said last three elements.
+		\item A delta stream is built given the differences between each element in the array, too.
+		\item The delta stream is searched to find the \emph{last} occurrence of the latest delta pair (excluding that final occurrence itself).
+		\item From \emph{this} occurrence of the delta pair, up to the defined prefetch degree number of deltas are collected, searching \emph{forwards} in the delta stream.
+		\item Finally, the latest miss address is added to each delta, and these are the addresses to be prefetched.
+	\end{enumerate}
+
+	\section{Implementation}
+	The prefetcher was implemented in \Cpp{20}, and the standard library was put to great use while building the delta stream.
+
+	\subsection{Data Structures}
+	To begin with, to simulate hardware limitations, the \gls{it} was built using an implementation of a \gls{lru} hash table, with a fixed size.
+	The \gls{ghb} was implemented using \mintinline{c++}{boost::circular_buffer}, in the Boost library.
+	Both data structures have fixed, equal capacities.
+
+	\subsection{Pointer and Memory Management}
+	The existence of pointers and the dynamic destruction of data by the \gls{ghb} poses a potential memory management issue: multiple pointers to the same data would mean that as data is evicted by the \gls{ghb}, the pointers in the \gls{it} and \emph{within} the \gls{ghb} are not invalidated correctly.
+
+	To solve this, the GHB is set to \emph{own} the pointers.
+	As such, it contains \mintinline{c++}{std::shared_ptr<Node>}, with the following definition of \mintinline{c++}{Node}:
+	\begin{minted}{c++}
+	struct Node {
+		// ... constructor ...
+		AddressType miss_address;
+		std::weak_ptr<Node> next;
+	}
+	\end{minted}
+	The \emph{entries} in the \gls{it} are of type \mintinline{c++}{std::weak_ptr<Node>}, too.
+	This allows the graceful destruction of the \mintinline{c++}{Node}s as they are evicted from the \gls{ghb}.
+	Any \mintinline{c++}{std::weak_ptr}s that dereference to said \mintinline{c++}{Node} may be queried for validity by way of \mintinline{c++}{std::weak_ptr<T>::expired()}.
+
+	It is worth noting that \mintinline{c++}{std::adjacent_difference} and \mintinline{c++}{std::find_end} were critical methods from the \Cpp{} standard library to build and verify the delta streams mentioned in \cref{subsec:ghb-pc-dc-oper}.
+
+	\subsection{Implementation Discussion}
+	The implementation was relatively straightforward, and completed with \texttt{CLion 2022.1}, with \texttt{clang++} version 13 and \texttt{gdb} version 11.2.
+	Initially, a templated implementation was sought; however, to ease debugging and development, this was quickly abandoned in favour of hardcoding types in the \gls{it} and \gls{ghb} implementations.
+
+	It was very pleasant to see the linked lists being built in the \gls{ghb}, as verification that the implementation was indeed correct.
+
+	\subsection{Parameters}
+	The parameters provided to the \gls{ghb-pc-dc} prefetcher are the same as the literature: 256 entries in the \gls{it} and \gls{ghb} each, with a maximum prefetch degree of 4.
+
+	\subsection{Result Collection}
+	The \texttt{stdout} from each program run was written to a correspondingly-named file in the \texttt{output/} directory.
+	Then, the \texttt{make\_csv.sh} script compiled the final IPC output from each simulator run into a \texttt{.csv} file for further mangling and data processing in a spreadsheet/chart generation program.
+
+	\section{Results and Discussion}
+	The results of the implementation are compared with the baseline no-prefetcher simulator i.e. \texttt{skeleton.cc}.
+	The percentage improvements of each implementation is detailed in \cref{fig:prefetcher-perf}.
 \end{multicols}
+\begin{figure}[htbp]
+	\centering
+	\input{figures/ipc_relative.tikz}
+	\caption{Prefetcher performance}\label{fig:prefetcher-perf}
+\end{figure}
+\begin{multicols}{2}
+	\subsection{Comparisons}
+	It was not surprising to see the AMPM prefetcher outperforming \gls{ghb-pc-dc}: this is a \emph{very} recent prefetcher and in benchmarks by the authors (\citeauthor{ishiiAccessMapPattern2011}), performs up to twice as well as \gls{ghb-pc-dc}\cite{ishiiAccessMapPattern2011}
 
+	What \emph{is} surprising, however, is the comparatively poor performance of \gls{ghb-pc-dc} versus IP Stride and even Next Line.
+	While debugging, it was noted that \gls{ghb-pc-dc} was not performing as well as it \emph{should} have been.
+	A large proportion of access deltas were found to be rather \emph{constant} for many benchmarks, meaning that only \emph{two} addresses were prefetched, rather than the maximum specified by the prefetch degree.
 
+	It is possible that additional heuristics, such as finding the second-latest occurrence of the delta pair, searching for \emph{multiple} delta pairs in the stream and somehow concatenating/averaging these results, or simply excluding some arbitrary initial portion of the linked-list, could lead to improved performance for the \gls{ghb-pc-dc} prefetcher.
+
+	\section{Conclusion}
+	In conclusion, a \glsentryfull{ghb-pc-dc} prefetcher was built, tested, and run using the Data Prefetching Championship framework, and these results were compared with example prefetchers provided in the implementation.
+\end{multicols}
 
 \printbibliography{}
 \end{document}
