@@ -14,3 +14,4 @@ traces/*.dpc
 *.synctex.gz
 *.aux
 *.bcf
+/build/

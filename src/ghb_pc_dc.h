@@ -2,13 +2,12 @@
 
 #include "history_buffer.h"
 #include "lru_cache.h"
+#include <memory>
 
-template<std::unsigned_integral IndexKey, typename MissAddress>
-using IndexTable = lru_cache<IndexKey, node_wk_ptr_t<MissAddress>>;
-
+using IndexKey = unsigned long long int;
+using IndexTable = lru_cache<IndexKey, node_wk_ptr_t>;
 using Address = unsigned long long int;
 
-template<std::unsigned_integral IndexKey, std::unsigned_integral MissAddress>
 class GHBPCDCPrefetcher
 {
 public:
@@ -19,13 +18,11 @@ public:
 	std::vector<MissAddress> missOperate(IndexKey index_key, MissAddress miss_address);
 
 private:
-	IndexTable<IndexKey, MissAddress> indexTable{256u};
-	HistoryBuffer<MissAddress> historyBuffer{256u, 4u};
+	IndexTable indexTable{256u};
+	HistoryBuffer historyBuffer{256u, 4u};
 };
 
-template<std::unsigned_integral IndexKey, std::unsigned_integral MissAddress>
-std::vector<MissAddress> GHBPCDCPrefetcher<IndexKey, MissAddress>::missOperate(IndexKey index_key,
-                                                                               MissAddress miss_address)
+std::vector<MissAddress> GHBPCDCPrefetcher::missOperate(IndexKey index_key, MissAddress miss_address)
 {
 	// is there an index table (IT) hit?
 	auto possible_buffer_ptr{indexTable.get(index_key)};
@@ -34,9 +31,10 @@ std::vector<MissAddress> GHBPCDCPrefetcher<IndexKey, MissAddress>::missOperate(I
 	if (!possible_buffer_ptr || possible_buffer_ptr->expired()) {
 		auto new_buffer_ptr{historyBuffer.pushNewAddress(miss_address)};
 		// If no IT hit, insert
-		if (!possible_buffer_ptr) indexTable.insert(index_key, new_buffer_ptr);
+		if (!possible_buffer_ptr) indexTable.put(index_key, new_buffer_ptr);
 		// hit, but expired:
-		else if (possible_buffer_ptr->expired()) possible_buffer_ptr.value() = new_buffer_ptr;
+		else if (possible_buffer_ptr->expired())
+			possible_buffer_ptr.value() = new_buffer_ptr;
 
 		// Return empty vector--no prefetching
 		return {};
@@ -45,8 +43,11 @@ std::vector<MissAddress> GHBPCDCPrefetcher<IndexKey, MissAddress>::missOperate(I
 	// Pointer is *valid* here, insert new address at head. Pass in old pointer to link previous
 	// linked list head
 	auto linked_list_head{historyBuffer.linkedListHead(miss_address, possible_buffer_ptr.value())};
+
+	// Set index table entry to new head
+	indexTable.put(index_key, linked_list_head);
 	// Now, get first delta pair in the linked list
-	auto possible_first_delta_pair{historyBuffer.firstDeltaPair(linked_list_head)};
+	auto possible_first_delta_pair{HistoryBuffer::firstDeltaPair(linked_list_head)};
 
 	// Finally, return up to prefetch_degree prefetch targets if there's a first delta pair at all
 	if (!possible_first_delta_pair) return {};

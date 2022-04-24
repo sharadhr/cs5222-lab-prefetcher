@@ -1,126 +1,67 @@
-//---------------------------------------------------------------------------//
-// Copyright (c) 2013 Kyle Lutz <kyle.r.lutz@gmail.com>
-//
-// Distributed under the Boost Software License, Version 1.0
-// See accompanying file LICENSE_1_0.txt or copy at
-// http://www.boost.org/LICENSE_1_0.txt
-//
-// See http://boostorg.github.com/compute for more information.
-//---------------------------------------------------------------------------//
-// Modified to remove namespaces, use std::optional and std::unordered_map by
-// Sharadh Rajaraman (c) 2022
+/*
+* File:   lrucache.hpp
+* Author: Alexander Ponomarev
+* Source: https://github.com/lamerman/cpp-lru-cache/blob/master/include/lrucache.hpp
+* Created on June 20, 2013, 5:09 PM
+*
+* Modified to remove namespaces, and use std::optional by
+* Sharadh Rajaraman (c) 2022
+*/
 
 #pragma once
 
+#include <cstddef>
 #include <list>
 #include <optional>
+#include <stdexcept>
 #include <unordered_map>
 #include <utility>
 
 // a cache which evicts the least recently used item when it is full
-template<class Key, class Value>
+template<typename key_t, typename value_t>
 class lru_cache
 {
 public:
-	typedef Key key_type;
-	typedef Value value_type;
-	typedef std::list<key_type> list_type;
-	typedef std::unordered_map<
-			key_type,
-			std::pair<value_type, typename list_type::iterator>>
-			map_type;
+	typedef typename std::pair<key_t, value_t> key_value_pair_t;
+	typedef typename std::list<key_value_pair_t>::iterator list_iterator_t;
 
-	explicit lru_cache(size_t capacity) :
-		m_capacity(capacity)
+	explicit lru_cache(size_t max_size) : _max_size(max_size) {}
+
+	void put(const key_t& key, const value_t& value)
 	{
-	}
+		auto it = _cache_items_map.find(key);
+		_cache_items_list.push_front(key_value_pair_t(key, value));
+		if (it != _cache_items_map.end()) {
+			_cache_items_list.erase(it->second);
+			_cache_items_map.erase(it);
+		}
+		_cache_items_map[key] = _cache_items_list.begin();
 
-	~lru_cache() = default;
-
-	[[nodiscard]] size_t size() const
-	{
-		return m_map.size();
-	}
-
-	[[nodiscard]] size_t capacity() const
-	{
-		return m_capacity;
-	}
-
-	[[nodiscard]] bool empty() const
-	{
-		return m_map.empty();
-	}
-
-	bool contains(const key_type& key)
-	{
-		return m_map.find(key) != m_map.end();
-	}
-
-	void insert(const key_type& key, const value_type& value)
-	{
-		typename map_type::iterator i = m_map.find(key);
-		if (i == m_map.end()) {
-			// insert item into the cache, but first check if it is full
-			if (size() >= m_capacity) {
-				// cache is full, evict the least recently used item
-				evict();
-			}
-
-			// insert the new item
-			m_list.push_front(key);
-			m_map[key] = std::make_pair(value, m_list.begin());
+		if (_cache_items_map.size() > _max_size) {
+			auto last = _cache_items_list.end();
+			last--;
+			_cache_items_map.erase(last->first);
+			_cache_items_list.pop_back();
 		}
 	}
 
-	std::optional<value_type> get(const key_type& key)
+	std::optional<value_t> get(const key_t& key)
 	{
-		// lookup value in the cache
-		typename map_type::iterator i = m_map.find(key);
-		if (i == m_map.end()) {
-			// value not in cache
+		auto it = _cache_items_map.find(key);
+		if (it == _cache_items_map.end()) {
 			return {};
-		}
-
-		// return the value, but first update its place in the most
-		// recently used list
-		typename list_type::iterator j = i->second.second;
-		if (j != m_list.begin()) {
-			// move item to the front of the most recently used list
-			m_list.erase(j);
-			m_list.push_front(key);
-
-			// update iterator in map
-			j = m_list.begin();
-			const value_type& value = i->second.first;
-			m_map[key] = std::make_pair(value, j);
-
-			// return the value
-			return {value};
 		} else {
-			// the item is already at the front of the most recently
-			// used list so just return it
-			return {i->second.first};
+			_cache_items_list.splice(_cache_items_list.begin(), _cache_items_list, it->second);
+			return it->second->second;
 		}
 	}
 
-	void clear()
-	{
-		m_map.clear();
-		m_list.clear();
-	}
+	bool exists(const key_t& key) const { return _cache_items_map.find(key) != _cache_items_map.end(); }
+
+	[[nodiscard]] std::size_t size() const { return _cache_items_map.size(); }
 
 private:
-	void evict()
-	{
-		// evict item from the end of most recently used list
-		typename list_type::iterator i = --m_list.end();
-		m_map.erase(*i);
-		m_list.erase(i);
-	}
-
-private:
-	map_type m_map;
-	list_type m_list;
-	size_t m_capacity;
+	std::list<key_value_pair_t> _cache_items_list;
+	std::unordered_map<key_t, list_iterator_t> _cache_items_map;
+	size_t _max_size;
 };
