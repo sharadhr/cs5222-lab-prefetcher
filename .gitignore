@@ -15,3 +15,7 @@ traces/*.dpc
 *.aux
 *.bcf
 /build/
+report/figures/*.dep
+report/figures/*.dpth
+report/figures/*.md5
+/report/_minted*/*
